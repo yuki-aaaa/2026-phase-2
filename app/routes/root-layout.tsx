@@ -1,5 +1,6 @@
 import { data, isRouteErrorResponse, Outlet } from "react-router"
 import { showToast } from "~/components/common/toast"
+import { useEffect } from "react"
 import { Toaster } from "~/components/ui/sonner"
 import { BaseError } from "~/lib/error"
 import { repositoryMiddleware } from "~/middlewares/repositories"
@@ -20,8 +21,9 @@ export async function loader({ request }: Route.LoaderArgs) {
 export default function RootLayout({ loaderData }: Route.ComponentProps) {
 	if (loaderData.toastPayload) {
 		// 副作用
-		showToast(loaderData.toastPayload)
-	}
+		useEffect(() => {
+			showToast(loaderData.toastPayload)
+	}, [loaderData.toastPayload])}
 
 	return (
 		<>

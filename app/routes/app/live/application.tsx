@@ -124,6 +124,7 @@ export default function LiveApplicationPage({
 					参加を希望するバンドにこのURLを共有してください
 				</p>
 			</div>
+			{/*1*/}
 			<Collapsible>
 				<Card>
 					<CardHeader>
@@ -220,6 +221,7 @@ export default function LiveApplicationPage({
 					</AlertDialogContent>
 				</AlertDialog>
 			</Collapsible>
+			{/*1*/}
 			<Card>
 				<CardHeader>
 					<CardTitle className="flex gap-1 items-center">
@@ -271,6 +273,7 @@ export default function LiveApplicationPage({
 					)}
 				</CardContent>
 				<Separator />
+				{/*2*/}
 				<CardHeader>
 					<CardTitle className="flex gap-1 items-center">
 						停止されたリンク
@@ -320,6 +323,7 @@ export default function LiveApplicationPage({
 						</div>
 					)}
 				</CardContent>
+				{/*3*/}
 			</Card>
 		</div>
 	)
