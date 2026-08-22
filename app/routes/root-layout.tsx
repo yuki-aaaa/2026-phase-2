@@ -19,11 +19,12 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export default function RootLayout({ loaderData }: Route.ComponentProps) {
-	if (loaderData.toastPayload) {
-		// 副作用
-		useEffect(() => {
+	// 副作用
+	useEffect(() => {
+		if (loaderData.toastPayload) {
 			showToast(loaderData.toastPayload)
-	}, [loaderData.toastPayload])}
+		}
+	}, [loaderData.toastPayload])
 
 	return (
 		<>
