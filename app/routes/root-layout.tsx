@@ -1,6 +1,6 @@
+import { useEffect } from "react"
 import { data, isRouteErrorResponse, Outlet } from "react-router"
 import { showToast } from "~/components/common/toast"
-import { useEffect } from "react"
 import { Toaster } from "~/components/ui/sonner"
 import { BaseError } from "~/lib/error"
 import { repositoryMiddleware } from "~/middlewares/repositories"

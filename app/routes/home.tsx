@@ -14,7 +14,9 @@ export default function TopPage() {
 		<div class="min-h-screen bg-black">
 			<h1 class="text-white">トップページ</h1>
 			<div class="text-white">{message}</div>
-			<div class="bg-[rgb(255,255,0)] text-[rgb(0,0,255)] text-2xl align-middle px-3 py-1.5 rounded">TEST</div>
+			<div class="bg-[rgb(255,255,0)] text-[rgb(0,0,255)] text-2xl align-middle px-3 py-1.5 rounded">
+				TEST
+			</div>
 			<Button variant="brand" size="xl" className="rounded-2xl" asChild>
 				<Link to="/auth/login">Login</Link>
 			</Button>
