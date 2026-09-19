@@ -155,11 +155,11 @@ function NewLinkForm() {
 										onClick={() => setOpenCreateDialog(true)}
 										disabled={fetcher1.state === "submitting"}
 									>
-									{fetcher1.state === "submitting" ? (
-										<LoaderCircleIcon className="animate-spin" />
-									) : (
-										<SendIcon />
-											)}
+										{fetcher1.state === "submitting" ? (
+											<LoaderCircleIcon className="animate-spin" />
+										) : (
+											<SendIcon />
+										)}
 										作成
 									</Button>
 								</Field>
@@ -186,23 +186,29 @@ function NewLinkForm() {
 					</AlertDialogHeader>
 					<AlertDialogFooter>
 						<AlertDialogCancel>キャンセル</AlertDialogCancel>
-						<AlertDialogAction type="button" onClick={() => {
-							if (formRef.current) fetcher1.submit(formRef.current)
-						}}>
-								募集を始める
+						<AlertDialogAction
+							type="button"
+							onClick={() => {
+								if (formRef.current) fetcher1.submit(formRef.current)
+							}}
+						>
+							募集を始める
 						</AlertDialogAction>
-						</AlertDialogFooter>
-					</AlertDialogContent>
-				</AlertDialog>
-			</Collapsible>
-)}
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
+		</Collapsible>
+	)
+}
 
 function ApplicationList({
- applications, instruct, icon
+	applications,
+	instruct,
+	icon,
 }: {
- applications: LiveApplicationWithUrl[];
- instruct: string;
- icon;
+	applications: LiveApplicationWithUrl[]
+	instruct: string
+	icon
 }) {
 	const fetcher2 = useFetcher()
 
@@ -220,9 +226,7 @@ function ApplicationList({
 	return (
 		<div>
 			<CardHeader>
-				<CardTitle className="flex gap-1 items-center">
-					{instruct}
-				</CardTitle>
+				<CardTitle className="flex gap-1 items-center">{instruct}</CardTitle>
 			</CardHeader>
 			<CardContent>
 				{applications.length === 0 ? (
@@ -269,7 +273,8 @@ function ApplicationList({
 				)}
 			</CardContent>
 		</div>
-)}
+	)
+}
 
 export default function LiveApplicationPage({
 	loaderData: { availableApplicationsWithUrl, suspendedApplicationsWithUrl },
@@ -284,9 +289,17 @@ export default function LiveApplicationPage({
 			</div>
 			<NewLinkForm />
 			<Card>
-				<ApplicationList applications={availableApplicationsWithUrl} instruct="有効なリンク" icon={<PauseIcon />} />
+				<ApplicationList
+					applications={availableApplicationsWithUrl}
+					instruct="有効なリンク"
+					icon={<PauseIcon />}
+				/>
 				<Separator />
-				<ApplicationList applications={suspendedApplicationsWithUrl} instruct="停止されたリンク" icon={<PlayIcon />} />
+				<ApplicationList
+					applications={suspendedApplicationsWithUrl}
+					instruct="停止されたリンク"
+					icon={<PlayIcon />}
+				/>
 			</Card>
 		</div>
 	)
